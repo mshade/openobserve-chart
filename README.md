@@ -1,6 +1,6 @@
 # OpenObserve Helm Chart - Single Node
 
-![Lint, Test, Release](https://github.com/github/mshade/actions/workflows/lint-test-release.yml/badge.svg)
+![Lint, Test, Release](https://github.com/mshade/openobserve-chart/actions/workflows/lint-test-release.yml/badge.svg)
 
 Helm chart for single-node installation of [OpenObserve](https://github.com/openobserve/openobserve).
 
