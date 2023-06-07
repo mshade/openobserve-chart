@@ -1,0 +1,19 @@
+name: Check Renovate Config
+
+on:
+  push:
+    paths:
+      - renovate.json
+
+jobs:
+  test-renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Validate Renovate Config
+        run: |
+          docker run -i --rm -v $PWD:/app -w /app renovate/renovate:slim renovate-config-validator
