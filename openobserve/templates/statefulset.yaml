@@ -50,6 +50,18 @@ spec:
           # command: ["/bin/bash", "-c", "while true; do sleep 1; done"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /web/
+              port: 5080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /web/
+              port: 5080
+            initialDelaySeconds: 3
+            periodSeconds: 3
           ports:
             - containerPort: 5080
               name: http

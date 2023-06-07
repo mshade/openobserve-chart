@@ -1,0 +1,2 @@
+config:
+  DUMMY_VAR: "hello"
