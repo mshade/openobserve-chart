@@ -82,7 +82,7 @@ storage:
   storageClassName: ""
 
 config: {}
-  # Env vars for configuration
+  # Env vars for OpenObserve configuration
   # see https://github.com/openobserve/openobserve-helm-chart/blob/main/values.yaml#L70
 
 
