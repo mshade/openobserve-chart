@@ -16,4 +16,4 @@ jobs:
       
       - name: Validate Renovate Config
         run: |
-          docker run -it --rm -v $PWD:/app -w /app renovate/renovate:slim renovate-config-validator
+          docker run -i --rm -v $PWD:/app -w /app renovate/renovate:slim renovate-config-validator
