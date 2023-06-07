@@ -3,7 +3,7 @@ name: Lint and Test Chart
 on:
   push:
     branches: 
-      - 'main'
+      - main
 
 jobs:
   lint-test:
