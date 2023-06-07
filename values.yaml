@@ -78,4 +78,5 @@ config:
   dataDir: "/data"
   volumeSize: "10Gi"
   storageClassName: ""
+  # A random initial password will be set if left empty
   initialPassword: ""
