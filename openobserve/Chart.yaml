@@ -3,6 +3,7 @@ name: openobserve
 description: Helm chart for Single-node deployment of OpenObserve observability platform
 type: application
 version: 0.1.0
+# renovate: image=public.ecr.aws/zinclabs/openobserve
 appVersion: "v0.4.7"
 maintainers:
   - name: mshade
