@@ -1,7 +1,7 @@
 # openobserve-chart
-Helm chart for [OpenObserve](https://github.com/openobserve/openobserve)
+Helm chart for single-node installation of [OpenObserve](https://github.com/openobserve/openobserve).
 
-Currently supports single-node operation.
+The [official OpenObserve chart](https://github.com/openobserve/openobserve-helm-chart/) supports HA operation, but contains many more components. This is a simpler alternative which still provides more flexibility than the bare k8s manifests.
 
 ## Installing
 Clone the repository and:
