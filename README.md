@@ -1,9 +1,13 @@
 # OpenObserve Helm Chart - Single Node
+
+![Lint, Test, Release](https://github.com/github/mshade/actions/workflows/lint-test-release.yml/badge.svg)
+
 Helm chart for single-node installation of [OpenObserve](https://github.com/openobserve/openobserve).
 
 The [official OpenObserve chart](https://github.com/openobserve/openobserve-helm-chart/) supports HA operation, but contains many more components. This is a simpler alternative which still provides more flexibility than the bare k8s manifests.
 
 ## Installing
+
 Clone the repository and:
 
 1. Customize [values.yaml](./openobserve/values.yaml)
