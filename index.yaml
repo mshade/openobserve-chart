@@ -1,0 +1,18 @@
+apiVersion: v1
+entries:
+  openobserve:
+  - apiVersion: v2
+    appVersion: v0.4.7
+    created: "2023-06-07T18:30:56.977137826Z"
+    description: Helm chart for Single-node deployment of OpenObserve observability
+      platform
+    digest: dd6df7900dac38d6eefc594fef4d282edf5cc4d515475a0af7deaef19fab6f55
+    maintainers:
+    - email: mshade@mshade.org
+      name: Mike Shade
+    name: openobserve
+    type: application
+    urls:
+    - https://github.com/mshade/openobserve-chart/releases/download/openobserve-0.1.0/openobserve-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-07T18:30:56.977145726Z"
