@@ -37,6 +37,7 @@ jobs:
         run: ct install --chart-dirs openobserve --charts openobserve --target-branch ${{ github.event.repository.default_branch }}
 
   release:
+    needs: lint-test
     permissions:
       contents: write
     runs-on: ubuntu-latest
