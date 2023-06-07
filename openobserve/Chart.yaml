@@ -4,3 +4,6 @@ description: Helm chart for Single-node deployment of OpenObserve observability 
 type: application
 version: 0.1.0
 appVersion: "v0.4.7"
+maintainers:
+  - name: Mike Shade
+    email: mshade@mshade.org
