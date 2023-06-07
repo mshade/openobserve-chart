@@ -35,14 +35,18 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: ZO_ROOT_USER_EMAIL
-              value: {{ .Values.config.rootUserEmail }}
+              value: {{ .Values.auth.rootUserEmail }}
             - name: ZO_ROOT_USER_PASSWORD
               valueFrom:
                   secretKeyRef:
                     name: initial-root-password
                     key: password
             - name: ZO_DATA_DIR
-              value: {{ .Values.config.dataDir }}
+              value: {{ .Values.storage.dataDir }}
+            {{- range $name, $item := .Values.config }}
+            - name: {{ $name }}
+              value: {{ $item }}
+            {{- end }}
           # command: ["/bin/bash", "-c", "while true; do sleep 1; done"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -58,9 +62,9 @@ spec:
     spec:
       accessModes:
         - ReadWriteOnce
-      {{- if .Values.config.storageClassName }}
-      storageClassName: {{ .Values.config.storageClassName }}
+      {{- if .Values.storage.storageClassName }}
+      storageClassName: {{ .Values.storage.storageClassName }}
       {{- end }}
       resources:
         requests:
-          storage: {{ .Values.config.volumeSize }}
+          storage: {{ .Values.storage.volumeSize }}

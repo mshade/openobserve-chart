@@ -62,7 +62,7 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "openobserve.initialPassword" -}}
-  {{- if empty .Values.config.initialPassword }}
+  {{- if empty .Values.auth.initialPassword }}
     {{- $secretObj := (lookup "v1" "Secret" .Release.Namespace "initial-root-password") | default dict }}
     {{- $secretData := (get $secretObj "data") | default dict }}
     {{- $rootPass := (get $secretData "initial-root-password") | default (randAlphaNum 16) }}
@@ -71,7 +71,7 @@ Create the name of the service account to use
     {{- end }}
     {{- printf "%s" $rootPass }}
   {{- else }}
-    {{- $initialPassword := .Values.config.initialPassword }}
+    {{- $initialPassword := .Values.auth.initialPassword }}
     {{- printf "%s" $initialPassword }}
   {{- end}}
 {{- end }}

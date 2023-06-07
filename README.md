@@ -9,7 +9,7 @@ Clone the repository and:
 1. Customize values
 2. `helm install openobserve ./openobserve -f myvalues.yaml -n openobserve --create-namespace`
 
-An initial root user password will be generated for you, or can be specified at install time with `--set config.initialPassword=supersecret`.
+An initial root user password will be generated for you, or can be specified at install time with `--set auth.initialPassword=supersecret`.
 
 If none is specified, retrieve the password from the generated secret:
 ```
