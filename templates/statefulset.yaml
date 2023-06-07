@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "openobserve.fullname" . }}
+  labels:
+    {{- include "openobserve.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "openobserve.fullname" . }}
+  replicas: 1
+  selector:
+    matchLabels:
+       {{- include "openobserve.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "openobserve.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "openobserve.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      # terminationGracePeriodSeconds: 0
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: ZO_ROOT_USER_EMAIL
+              value: {{ .Values.config.rootUserEmail }}
+            - name: ZO_ROOT_USER_PASSWORD
+              valueFrom:
+                  secretKeyRef:
+                    name: initial-root-password
+                    key: password
+            - name: ZO_DATA_DIR
+              value: {{ .Values.config.dataDir }}
+          # command: ["/bin/bash", "-c", "while true; do sleep 1; done"]
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          ports:
+            - containerPort: 5080
+              name: http
+          volumeMounts:
+          - name: data
+            mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      {{- if .Values.config.storageClassName }}
+      storageClassName: {{ .Values.config.storageClassName }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.config.volumeSize }}
