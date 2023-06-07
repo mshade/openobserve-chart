@@ -2,8 +2,8 @@ name: Check Renovate Config
 
 on:
   push:
-    # paths:
-    #   - renovate.json
+    paths:
+      - renovate.json
 
 jobs:
   test-renovate:
