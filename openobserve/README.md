@@ -1,14 +1,31 @@
 # openobserve
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.4.7](https://img.shields.io/badge/AppVersion-v0.4.7-informational?style=flat-square)
+Helm chart for single-node deployment of OpenObserve observability platform
 
-Helm chart for Single-node deployment of OpenObserve observability platform
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.4.7](https://img.shields.io/badge/AppVersion-v0.4.7-informational?style=flat-square)
 
-## Maintainers
+## Additional Information
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| mshade | <mshade@mshade.org> | <https://github.com/mshade> |
+The [official OpenObserve chart](https://github.com/openobserve/openobserve-helm-chart/) supports HA operation, but contains many more components.
+This is a simpler alternative which still provides more flexibility than the bare k8s manifests.
+
+See the [official project repo](https://github.com/openobserve/openobserve) for operation and
+configuring ingestion of logs, metrics, and traces.
+
+## Installing the Chart
+
+To install the chart as "openobserve" in the namespace "openobserve":
+
+1. Customize [values.yaml](./values.yaml)
+2. `helm repo add mshade-openobserve https://mshade.github.io/openobserve-chart`
+3. `helm install openobserve mshade-openobserve/openobserve -f values.yaml -n openobserve --create-namespace`
+
+An initial root user password will be generated for you, or can be specified at install time with `--set auth.initialPassword=supersecret`.
+
+If none is specified, retrieve the password from the generated secret:
+```
+$ kubectl -n openobserve get secret initial-root-password -ojsonpath="{.data.password}" | base64 -d
+```
 
 ## Values
 
