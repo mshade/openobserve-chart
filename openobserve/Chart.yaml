@@ -9,3 +9,5 @@ maintainers:
   - name: mshade
     email: mshade@mshade.org
     url: https://github.com/mshade
+annotations:
+  artifacthub.io/category: monitoring-logging

@@ -72,8 +72,9 @@ tolerations: []
 affinity: {}
 
 auth:
+  # -- email address for root user
   rootUserEmail: "admin@example.com"
-  # A random initial password will be set if left empty
+  # -- A random initial password will be set if left empty
   initialPassword: ""
 
 storage:
@@ -81,6 +82,6 @@ storage:
   volumeSize: "10Gi"
   storageClassName: ""
 
+# -- Env vars for OpenObserve configuration
+# see https://github.com/openobserve/openobserve-helm-chart/blob/main/values.yaml#L70
 config: {}
-  # Env vars for OpenObserve configuration
-  # see https://github.com/openobserve/openobserve-helm-chart/blob/main/values.yaml#L70
