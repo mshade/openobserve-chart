@@ -2,7 +2,7 @@ apiVersion: v2
 name: openobserve
 description: Helm chart for Single-node deployment of OpenObserve observability platform
 type: application
-version: 0.1.1
+version: 0.1.2
 # renovate: image=public.ecr.aws/zinclabs/openobserve
 appVersion: "v0.4.7"
 maintainers:
