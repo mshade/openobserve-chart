@@ -58,6 +58,7 @@ jobs:
       - name: Generate Chart Readme
         run: |
           docker run --rm --volume "$(pwd)/openobserve:/helm-docs" jnorwood/helm-docs:latest
+          cp openobserve/README.md .
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
