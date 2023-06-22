@@ -11,11 +11,15 @@ This is a simpler alternative which still provides more flexibility than the bar
 See the [official project repo](https://github.com/openobserve/openobserve) for operation and
 configuring ingestion of logs, metrics, and traces.
 
+Using an object store like S3 is highly recommended even for small installations, as filling the `/data` volume can result in sled database corruption.
+
 ## Installing the Chart
 
 To install the chart as "openobserve" in the namespace "openobserve":
 
 1. Customize [values.yaml](./values.yaml)
+    - Set `auth.initialPassword` if desired
+    - Configure object storage via `config.ZO_S3_` vars
 2. `helm repo add mshade-openobserve https://mshade.github.io/openobserve-chart`
 3. `helm install openobserve mshade-openobserve/{{ template "chart.name" . }} -f values.yaml -n openobserve --create-namespace`
 

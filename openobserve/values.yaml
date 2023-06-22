@@ -25,6 +25,10 @@ podAnnotations: {}
 
 podSecurityContext:
   fsGroup: 2000
+  # If using local storage, a recursive chown is performed on every startup which can be slow
+  # Disable this with the OnRootMismatch policy
+  # See: https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/
+  fsGroupChangePolicy: OnRootMismatch
   runAsUser: 10000
   runAsGroup: 3000
   runAsNonRoot: true
@@ -84,4 +88,11 @@ storage:
 
 # -- Env vars for OpenObserve configuration
 # see https://github.com/openobserve/openobserve-helm-chart/blob/main/values.yaml#L70
-config: {}
+config:
+  # Object storage auth
+  ZO_S3_ACCESS_KEY: ""
+  ZO_S3_SECRET_KEY: ""
+  # ZO_S3_PROVIDER: "minio" # Need to set this up only if minio is being for object storage
+  ZO_S3_SERVER_URL: ""
+  ZO_S3_REGION_NAME: ""
+  ZO_S3_BUCKET_NAME: ""
