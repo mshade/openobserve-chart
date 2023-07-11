@@ -3,7 +3,7 @@ name: Lint, Test, Release Chart
 on:
   push:
     branches: 
-      - *
+      - "*"
 
 jobs:
   lint-test:
