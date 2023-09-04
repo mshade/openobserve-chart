@@ -44,7 +44,7 @@ spec:
             - name: ZO_DATA_DIR
               value: {{ .Values.storage.dataDir }}
             {{- range $name, $item := .Values.config }}
-            - name: {{ $name | quote }}
+            - name: {{ $name }}
               value: {{ $item | quote }}
             {{- end }}
           # command: ["/bin/bash", "-c", "while true; do sleep 1; done"]
