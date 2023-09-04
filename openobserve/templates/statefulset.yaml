@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: ZO_ROOT_USER_EMAIL
-              value: {{ .Values.auth.rootUserEmail }}
+              value: {{ .Values.auth.rootUserEmail | quote }}
             - name: ZO_ROOT_USER_PASSWORD
               valueFrom:
                   secretKeyRef:
@@ -44,8 +44,8 @@ spec:
             - name: ZO_DATA_DIR
               value: {{ .Values.storage.dataDir }}
             {{- range $name, $item := .Values.config }}
-            - name: {{ $name }}
-              value: {{ $item }}
+            - name: {{ $name | quote }}
+              value: {{ $item | quote }}
             {{- end }}
           # command: ["/bin/bash", "-c", "while true; do sleep 1; done"]
           resources:

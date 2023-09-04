@@ -1,2 +1,3 @@
 config:
   DUMMY_VAR: "hello"
+  ZO_COMPACT_DATA_RETENTION_DAYS: 30
