@@ -4,3 +4,17 @@ config:
   ZO_COMPACT_DATA_RETENTION_DAYS: 30
   # Issue 12
   ZO_BASE_URI: /openobserve
+
+livenessProbe:
+  httpGet:
+    path: /openobserve/healthz
+    port: 5080
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+readinessProbe:
+  httpGet:
+    path: /openobserve/healthz
+    port: 5080
+  initialDelaySeconds: 3
+  periodSeconds: 3
