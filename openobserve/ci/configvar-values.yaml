@@ -1,3 +1,6 @@
 config:
   DUMMY_VAR: "hello"
+  # Issue 11
   ZO_COMPACT_DATA_RETENTION_DAYS: 30
+  # Issue 12
+  ZO_BASE_URI: /openobserve

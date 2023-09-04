@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "openobserve.fullname" . }}:{{ .Values.service.port }}/web/']
+      args: ['{{ include "openobserve.fullname" . }}:{{ .Values.service.port }}{{ .Values.config.ZO_BASE_URI }}/web/']
   restartPolicy: Never

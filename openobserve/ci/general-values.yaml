@@ -1,3 +1,8 @@
+auth:
+  rootUserEmail: "admin@your.org"
+  initialPassword: "superSecretPassword123!"
+
+
 ingress:
   enabled: true
   className: ""
@@ -13,3 +18,18 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 5080
+  initialDelaySeconds: 10
+  periodSeconds: 5
+
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 5080
+  initialDelaySeconds: 5
+  periodSeconds: 3
