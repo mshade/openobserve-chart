@@ -69,19 +69,19 @@ resources:
     cpu: 256m
     memory: 50Mi
 
-livenessProbe:
-  httpGet:
-    path: /healthz
-    port: 5080
-  initialDelaySeconds: 5
-  periodSeconds: 5
+livenessProbe: {}
+  # httpGet:
+  #   path: /healthz
+  #   port: 5080
+  # initialDelaySeconds: 5
+  # periodSeconds: 5
 
-readinessProbe:
-  httpGet:
-    path: /healthz
-    port: 5080
-  initialDelaySeconds: 3
-  periodSeconds: 3
+readinessProbe: {}
+  # httpGet:
+  #   path: /healthz
+  #   port: 5080
+  # initialDelaySeconds: 3
+  # periodSeconds: 3
 
 nodeSelector: {}
 
@@ -103,6 +103,8 @@ storage:
 # -- Env vars for OpenObserve configuration
 # see https://github.com/openobserve/openobserve-helm-chart/blob/main/values.yaml#L70
 config:
+  # Base URI - liveness/readiness probes depend on this, too
+  # ZO_BASE_URI: /example
   # Object storage auth
   ZO_S3_ACCESS_KEY: ""
   ZO_S3_SECRET_KEY: ""

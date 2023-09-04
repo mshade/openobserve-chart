@@ -51,9 +51,25 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
+            {{- if .Values.livenessProbe }}
+              {{- toYaml .Values.livenessProbe | nindent 12 }}
+            {{- else }}
+            httpGet:
+              path: {{ .Values.config.ZO_BASE_URI }}/healthz
+              port: 5080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            {{- end }}
           readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
+            {{- if  .Values.readinessProbe }}
+              {{- toYaml .Values.readinessProbe | nindent 12 }}
+            {{- else }}
+            httpGet:
+              path: {{ .Values.config.ZO_BASE_URI }}/healthz
+              port: 5080
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            {{- end }}
           ports:
             - containerPort: 5080
               name: http
