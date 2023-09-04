@@ -2,7 +2,7 @@
 
 Helm chart for single-node deployment of OpenObserve observability platform
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.2](https://img.shields.io/badge/AppVersion-v0.5.2-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.2](https://img.shields.io/badge/AppVersion-v0.5.2-informational?style=flat-square)
 
 ## Additional Information
 
@@ -50,6 +50,7 @@ $ kubectl -n openobserve get secret initial-root-password -ojsonpath="{.data.pas
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
@@ -58,6 +59,7 @@ $ kubectl -n openobserve get secret initial-root-password -ojsonpath="{.data.pas
 | podSecurityContext.runAsGroup | int | `3000` |  |
 | podSecurityContext.runAsNonRoot | bool | `true` |  |
 | podSecurityContext.runAsUser | int | `10000` |  |
+| readinessProbe | object | `{}` |  |
 | resources.limits.cpu | string | `"4096m"` |  |
 | resources.limits.memory | string | `"2048Mi"` |  |
 | resources.requests.cpu | string | `"256m"` |  |
