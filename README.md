@@ -2,17 +2,17 @@
 
 Helm chart for single-node deployment of OpenObserve observability platform
 
-![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.2](https://img.shields.io/badge/AppVersion-v0.5.2-informational?style=flat-square)
+![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.6.1](https://img.shields.io/badge/AppVersion-v0.6.1-informational?style=flat-square)
 
 ## Additional Information
 
 The [official OpenObserve chart](https://github.com/openobserve/openobserve-helm-chart/) supports HA operation, but contains many more components.
-This is a simpler alternative which still provides more flexibility than the bare k8s manifests.
+This is a simpler alternative which still provides more flexibility than the bare k8s manifests. It runs OpenObserve in single-node mode.
 
 See the [official project repo](https://github.com/openobserve/openobserve) for operation and
-configuring ingestion of logs, metrics, and traces.
+configuring ingestion of logs, metrics, and traces. Environment variables for configuration can be [referenced here](https://openobserve.ai/docs/environment-variables/).
 
-Using an object store like S3 is highly recommended even for small installations, as filling the `/data` volume can result in sled database corruption.
+Using an object store like S3 is highly recommended even for small installations, as filling the `/data` volume can result in database corruption.
 
 ## Installing the Chart
 
