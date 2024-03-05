@@ -23,10 +23,13 @@
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
 {{- end }}
-{{- if and (empty .Values.auth.initialPassword) .Release.IsInstall }}
+{{- if and (empty .Values.auth.initialPassword) .Release.IsInstall (empty .Values.auth.passwordSecret) }}
 2. Retrieve your initial root password with:
     kubectl --namespace {{ .Release.Namespace }} get secret initial-root-password -ojsonpath="{.data.password}" | base64 -d
 {{- end }}
 {{- if and .Values.auth.initialPassword .Release.IsInstall }}
 2. The initial root password is set in values at auth.initialPassword
+{{- end }}
+{{- if and .Values.auth.passwordSecret .Release.IsInstall }}
+2. The root password is set via existing secret named {{.Values.auth.passwordSecret}}
 {{- end }}

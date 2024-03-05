@@ -39,7 +39,7 @@ spec:
             - name: ZO_ROOT_USER_PASSWORD
               valueFrom:
                   secretKeyRef:
-                    name: initial-root-password
+                    name: {{ .Values.auth.passwordSecret | default "initial-root-password" }}
                     key: password
             - name: ZO_DATA_DIR
               value: {{ .Values.storage.dataDir }}
