@@ -4,6 +4,23 @@ entries:
   - annotations:
       artifacthub.io/category: monitoring-logging
     apiVersion: v2
+    appVersion: v0.8.1
+    created: "2024-03-05T00:39:34.354615289Z"
+    description: Helm chart for single-node deployment of OpenObserve observability
+      platform
+    digest: 9478004e53818e9ddd14d10b129ecf5e1b4bbd45cb23642d9f41fcc20d13283d
+    maintainers:
+    - email: mshade@mshade.org
+      name: mshade
+      url: https://github.com/mshade
+    name: openobserve
+    type: application
+    urls:
+    - https://github.com/mshade/openobserve-chart/releases/download/openobserve-0.1.10/openobserve-0.1.10.tgz
+    version: 0.1.10
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+    apiVersion: v2
     appVersion: v0.6.1
     created: "2023-09-21T14:40:59.799174853Z"
     description: Helm chart for single-node deployment of OpenObserve observability
@@ -166,4 +183,4 @@ entries:
     urls:
     - https://github.com/mshade/openobserve-chart/releases/download/openobserve-0.1.0/openobserve-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-21T14:40:59.799371582Z"
+generated: "2024-03-05T00:39:34.3546904Z"
