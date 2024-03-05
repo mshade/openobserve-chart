@@ -94,6 +94,8 @@ auth:
   rootUserEmail: "admin@example.com"
   # -- A random initial password will be set if left empty
   initialPassword: ""
+  # -- A secret containing a `password` key to use as the admin password
+  passwordSecret: ""
 
 storage:
   dataDir: "/data"
