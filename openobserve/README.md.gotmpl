@@ -24,6 +24,7 @@ To install the chart as "openobserve" in the namespace "openobserve":
 3. `helm install openobserve mshade-openobserve/{{ template "chart.name" . }} -f values.yaml -n openobserve --create-namespace`
 
 An initial root user password will be generated for you, or can be specified at install time with `--set auth.initialPassword=supersecret`.
+Alternatively, create a Kubernetes secret with your desired password defined as the `password` key and pass the name of this secret via `--set auth.passwordSecret=<secret-name>`.
 
 If none is specified, retrieve the password from the generated secret:
 ```
